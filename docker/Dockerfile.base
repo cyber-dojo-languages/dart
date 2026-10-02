@@ -1,0 +1,8 @@
+# The floating stable tag, so a rebuild picks up the newest stable Dart.
+# It is Debian based because the Dart SDK is built against glibc, and it is
+# published for both amd64 and arm64.
+FROM dart:stable
+LABEL maintainer=jon@jaggersoft.com
+
+COPY install.sh .
+RUN ./install.sh && rm ./install.sh
