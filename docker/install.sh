@@ -8,7 +8,7 @@
 # a symlink works as well as the real binary.
 ln --symbolic /usr/lib/dart/bin/dart /usr/local/bin/dart
 
-# Read by check_version.sh, so the gate states the version this image holds
+# Asked of the SDK, so /versions.json states the version this image holds
 # rather than one written down when someone last edited it.
 # dart --version prints "Dart SDK version: 3.13.5 (stable) (...)".
 readonly DART_VERSION=$(dart --version | cut -d' ' -f4)
