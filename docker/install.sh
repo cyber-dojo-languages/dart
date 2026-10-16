@@ -11,4 +11,13 @@ ln --symbolic /usr/lib/dart/bin/dart /usr/local/bin/dart
 # Read by check_version.sh, so the gate states the version this image holds
 # rather than one written down when someone last edited it.
 # dart --version prints "Dart SDK version: 3.13.5 (stable) (...)".
-echo "{\"dart\":\"$(dart --version | cut -d' ' -f4)\"}" > /versions.json
+readonly DART_VERSION=$(dart --version | cut -d' ' -f4)
+cat > /versions.json <<EOF
+{
+  "language": {
+    "name": "Dart",
+    "version": "${DART_VERSION}"
+  },
+  "test_frameworks": []
+}
+EOF
